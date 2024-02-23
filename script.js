@@ -18,10 +18,15 @@ function login() {
   const user = users.find(user => user.username === username && user.password === password);
 
   if (user) {
-    currentUser = username;
-    togglePage('chatPage');
-    updateBadge();
-    updateOnlineUsers(users);
+    if (user.username === 'admin') {
+      currentUser = username;
+      togglePage('chatPage');
+      updateBadge();
+      updateOnlineUsers(users);
+      updateButtons(); // Call the updateButtons function here
+    } else {
+      alert('You do not have permission to access this page.');
+    }
   } else {
     alert('Invalid username or password.');
   }
@@ -40,6 +45,7 @@ function register() {
     togglePage('chatPage');
     updateBadge();
     updateOnlineUsers(users);
+    updateButtons(); // Call the updateButtons function here
   } else {
     alert('Please enter username and password.');
   }
@@ -103,4 +109,18 @@ function updateOnlineUsers(users) {
     li.textContent = user.username;
     onlineUsersList.appendChild(li);
   });
+}
+
+function updateButtons() {
+  const banButton = document.getElementById('banButton');
+  const muteButton = document.getElementById('muteButton');
+
+  // Check if the current user is the admin
+  if (currentUser === 'admin') {
+    banButton.style.display = 'inline-block';
+    muteButton.style.display = 'inline-block';
+  } else {
+    banButton.style.display = 'none';
+    muteButton.style.display = 'none';
+  }
 }
