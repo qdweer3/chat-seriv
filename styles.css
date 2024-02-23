@@ -2,10 +2,11 @@
 
 /* Global styles */
 body {
-  font-family: Arial, sans-serif;
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
   margin: 0;
   padding: 0;
   background-color: #f0f0f0;
+  color: #333;
 }
 
 .container {
@@ -25,15 +26,47 @@ body {
 
 /* Login/Register page styles */
 .input-group {
-  margin-bottom: 10px;
+  margin-bottom: 15px;
 }
 
-.button-group {
-  margin-top: 20px;
+.input-group input[type="text"],
+.input-group input[type="password"],
+.input-group input[type="file"] {
+  width: 100%;
+  padding: 10px;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+}
+
+.input-group input[type="file"] {
+  border: none;
+}
+
+.input-group input[type="file"]::-webkit-file-upload-button {
+  background-color: #007bff;
+  color: #fff;
+  padding: 10px 20px;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+}
+
+.button {
+  background-color: #007bff;
+  color: #fff;
+  padding: 10px 20px;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+
+.button:hover {
+  background-color: #0056b3;
 }
 
 .link {
-  color: blue;
+  color: #007bff;
   cursor: pointer;
 }
 
@@ -43,20 +76,22 @@ body {
   overflow-y: auto;
   border: 1px solid #ccc;
   padding: 10px;
-  margin-bottom: 10px;
+  margin-bottom: 20px;
+  border-radius: 5px;
 }
 
-.input-group input[type="text"],
-.input-group input[type="password"] {
-  width: calc(100% - 70px);
-  margin-right: 10px;
+.input-group input[type="text"] {
+  border-radius: 5px 0 0 5px;
 }
 
-.button-group button {
-  margin-right: 10px;
+.input-group input[type="file"] {
+  border-radius: 0 5px 5px 0;
 }
 
-/* Dark mode styles */
+.button-group {
+  margin-top: 20px;
+}
+
 .dark-mode {
   background-color: #333;
   color: #fff;
