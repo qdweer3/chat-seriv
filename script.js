@@ -56,6 +56,7 @@ function sendMessage() {
   if (message) {
     const chatMessages = document.getElementById('chatMessages');
     const messageElement = document.createElement('div');
+    messageElement.setAttribute('id', `message_${Date.now()}`); // Generate unique ID for each message
     messageElement.innerHTML = `<strong>${currentUser}</strong>: ${message}`;
     chatMessages.appendChild(messageElement);
     messageInput.value = '';
