@@ -3,22 +3,54 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Static Chat</title>
-  <link rel="stylesheet" href="styles.css">
+  <title>Chat App</title>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/normalize/8.0.1/normalize.min.css">
+  <link rel="stylesheet" href="styles.min.css">
 </head>
 <body>
-  <div id="login-container">
-    <input type="text" id="username" placeholder="Enter your username">
-    <input type="password" id="password" placeholder="Enter your password">
+
+<div class="container">
+  <div class="header">
+    <h1>Chat App</h1>
+  </div>
+
+  <div id="loginPage" class="page">
+    <h2>Login</h2>
+    <div class="input-group">
+      <input type="text" id="loginUsername" placeholder="Username">
+    </div>
+    <div class="input-group">
+      <input type="password" id="loginPassword" placeholder="Password">
+    </div>
     <button onclick="login()">Login</button>
+    <p>Don't have an account? <a href="#" onclick="togglePage('registerPage')" class="link">Register</a></p>
   </div>
 
-  <div id="chat-container" style="display: none;">
-    <div id="chat-messages"></div>
-    <input type="text" id="message-input" placeholder="Type your message...">
-    <button onclick="sendMessage()">Send</button>
+  <div id="registerPage" class="page">
+    <h2>Register</h2>
+    <div class="input-group">
+      <input type="text" id="registerUsername" placeholder="Username">
+    </div>
+    <div class="input-group">
+      <input type="password" id="registerPassword" placeholder="Password">
+    </div>
+    <button onclick="register()">Register</button>
+    <p>Already have an account? <a href="#" onclick="togglePage('loginPage')" class="link">Login</a></p>
   </div>
 
-  <script src="script.js"></script>
+  <div id="chatPage" class="page">
+    <div id="chatMessages"></div>
+    <div class="input-group">
+      <input type="text" id="messageInput" placeholder="Type a message...">
+    </div>
+    <div class="button-group">
+      <button onclick="sendMessage()">Send</button>
+      <button onclick="logout()">Logout</button>
+    </div>
+  </div>
+</div>
+
+<script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+<script src="script.min.js" defer></script>
 </body>
 </html>
